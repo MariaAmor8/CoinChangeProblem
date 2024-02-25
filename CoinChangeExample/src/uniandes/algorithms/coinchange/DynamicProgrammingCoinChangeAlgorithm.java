@@ -30,16 +30,18 @@ public class DynamicProgrammingCoinChangeAlgorithm implements CoinChangeAlgorith
 		return monedas;
 	}
 
-	private void dynamicProgrammingCoinChangeAlgorithm(int totalValue, int[] denominations, int[][]matriz) {
+	private void dynamicProgrammingCoinChangeAlgorithm(int totalValue, int[] denominations, 
+			int[][]matriz) {
 		
 		for(int j = 0; j <= totalValue; j++) {
-			matriz[0][j] = 1000000;
+			matriz[0][j] = Integer.MAX_VALUE;
 		}
 		
 		for(int i = 1; i <= denominations.length; i++) {
 			for(int j = 1; j<= totalValue;j++) {
 				if(denominations[i-1] <= j) {
-					matriz[i][j] = Math.min(1 + matriz[i][j - denominations[i - 1]], matriz[i - 1][j]);
+					matriz[i][j] = Math.min(1 + matriz[i][j - denominations[i - 1]], 
+							matriz[i - 1][j]);
 				}
 				else {
 					matriz[i][j] = matriz[i - 1][j];
