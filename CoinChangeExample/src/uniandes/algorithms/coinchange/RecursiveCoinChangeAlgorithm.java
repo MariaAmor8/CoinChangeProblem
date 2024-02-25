@@ -11,7 +11,7 @@ public class RecursiveCoinChangeAlgorithm implements CoinChangeAlgorithm{
 		for(int i: monedas) {
 			System.out.println("monedas ->" + i);
 		}
-		int[] rta = {1,1,2};
+		int[] rta = {0,0,0,2,0};
 		return rta;
 	}
 
